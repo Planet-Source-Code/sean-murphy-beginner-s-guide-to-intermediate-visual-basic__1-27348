@@ -1,0 +1,206 @@
+<b><font SIZE="5">
+<p ALIGN="CENTER">Visual Basic<br>
+Variables, Operators, Conditional Statements, Combo/List Boxes<br>
+By Sean Murphy</p>
+</font><font SIZE="4">
+<p ALIGN="CENTER">Variables</p>
+</font></b>
+<p>Variables in visual basic can be declared anywhere in your program and are
+declared using the dim statement.</p>
+<p>The syntax:</p>
+<font FACE="Courier New" SIZE="2">
+<p>Dim X as Integer 'Creates an Integer Variable</p>
+<p>Dim Name as String 'Creates a String Variable</p>
+</font>
+<p>There are several different kinds of common variables:</p>
+<p>String<br>
+Your average text string. It can hold all letters and numbers.</p>
+<p>Integer<br>
+Will hold any number from -256 to 256.</p>
+<p>Long<br>
+Can hold numbers from -2,147,483,648 to 2,147,483,647.</p>
+<p>Bool<br>
+The smallest variables. It can only store 1 and 0. These are normally used as
+true/false variables. 1 being true 0 being false.</p>
+<p>Variable Scope</p>
+<p>Variable scope is where in your program your variables can be seen. A
+variable declared in the declarations section (this coding section can be found
+by pulling down the left combo box of the coding form) has a global scope and
+can be accessed anywhere in your project.</p>
+<p>While a variable that is declared inside your code, between the Sub and the
+End Sub, can only be accessed in that sub.</p>
+<b><font SIZE="4">
+<p>Operators</p>
+</font></b>
+<p>Operators are the things that make up the conditional part of the conditions
+statement. For instance in the code:</p>
+<font FACE="Courier New" SIZE="2">
+<p>if text1 = &quot;Yes&quot; then</font></p>
+<p>The operator would be the &quot;=&quot;. I'm sure we are very familiar with
+the &quot;=&quot; operator.</p>
+<p>Other operators are:</p>
+<font FACE="Courier New" SIZE="2">
+<p>= equals</p>
+<p>&lt;= less then or equal to</p>
+<p>&lt;&gt; does not equal</p>
+<p>=&gt; greater or equal too</p>
+</font>
+<p>* only the = and &lt;&gt; equal operators can be used with text.</p>
+<b><font SIZE="4">
+<p>Conditions</p>
+</font></b>
+<p>The syntax for the if statement is:</p>
+<font FACE="Courier New" SIZE="2">
+<p>If [condition] then</p>
+<p>[statement]</p>
+<p>end if</p>
+</font>
+<p>For Example</p>
+<font FACE="Courier New" SIZE="2">
+<p>If text1.text = &quot;Programmers are lovable&quot; then</p>
+<p>text2.text = &quot;Programmers are very lovable&quot;</p>
+<p>End if</p>
+</font>
+<p>This Function would display &quot;Programmers are very lovable&quot; in text2
+only if &quot;Programmers are lovable&quot; was displayed in Text 1.</p>
+<p>A continuation of this is the elseif and else condition statements. They are
+used after an If statement. The syntax is:</p>
+<font FACE="Courier New" SIZE="2">
+<p>If [first condition] then</p>
+<p>[code]</p>
+<p>elseif [second condition] then</p>
+<p>[code]</p>
+<p>elseif [third condition] then</p>
+<p>[code]</p>
+<p>else 'does not need a condition because it is always triggered if</p>
+<p>'the other conditions are all not.</p>
+<p>[code]</p>
+<p>end if</p>
+</font>
+<p>There may be as many elseif statements as needed but only one if and else
+statement per conditional group.</p>
+<b><font SIZE="4">
+<p>The Pirate Ship Program</p>
+</font></b>
+<p>This game is about 2 ships.</p>
+<p>Add these controls to the form:<br>
+<img SRC="Image1.gif" WIDTH="415" HEIGHT="335"><br>
+Now adjust the caption properties of the labels property so that they look like
+the following. Also for the sake of programming conventions adjust the text box
+names to match that of the caption beside it. Start the names for the user with
+&quot;Y&quot; and the opponents with &quot;O&quot;. For example the last text
+box's name would be YHP.</p>
+<font FACE="Times New Roman" SIZE="2">
+<p><img SRC="Image2.gif" WIDTH="338" HEIGHT="316"></p>
+</font>
+<p>Now we start on the code.</p>
+<p>The syntax for adding combo box items is:</p>
+<font FACE="Courier New" SIZE="2">
+<p>[combo box].additem [item]</font></p>
+<p>The code we are going to add into the form1 code is triggered by the form
+loading (appearing). In order to do this double click on the form and it will
+automatically go to &quot;Load&quot; event as that is the default event. Add the
+script:</p>
+<font FACE="Courier New" SIZE="2">
+<p>Private Sub Form1_load()</p>
+<p>'add the items for the different commands.</p>
+<p>combo1.additem &quot;Attack&quot;</p>
+<p>combo1.additem &quot;Retreat&quot;</p>
+<p>combo1.additem &quot;Flank&quot;</p>
+<p>Combo1.additem &quot;Approach&quot;</p>
+<p>combo1.additem &quot;Board&quot;</p>
+<p>'Enters the starting caption in the event label</p>
+<p>label13.caption = &quot;There is a ship attacking us. What would you like do
+captain?&quot;</p>
+<p>'Starting values</p>
+<p>YType.Text = &quot;Barque&quot; 'sets type</p>
+<p>YArmour.Text = &quot;25&quot; 'sets armor</p>
+<p>YCannon.Text = &quot;20&quot; 'number of cannon</p>
+<p>YMen.Text = &quot;100&quot; 'men</p>
+<p>YShots.Text = &quot;500&quot; 'shots</p>
+<p>YHp.Text = &quot;750&quot; 'hp</p>
+<p>'starting opponents values</p>
+<p>OType = &quot;Corvette&quot; 'sets type</p>
+<p>OArmour = &quot;10&quot; 'armor</p>
+<p>OCannon = &quot;25&quot; 'cannon</p>
+<p>OMen = &quot;150&quot; 'men</p>
+<p>OShots = &quot;750&quot; 'shots</p>
+<p>OHp = &quot;750&quot; 'hp</p>
+<p>End sub</p>
+</font>
+<p>Now lastly we have to make the commands and add some AI (artificial
+intelligence). We do this with the command button: (oh just for those who think
+AI is mystical and magical, it is not. It is but a series of algorithms to base
+computer moves on certain conditions rather then any means of sentience.) If you
+notice while originally we had to add &quot;.caption&quot; to our labels and
+&quot;.text&quot; to access the properties of our labels and text boxes, this is
+not required for ONLY these properties as they default to caption or text if no
+property is given.</p>
+<font FACE="Courier New" SIZE="2">
+<p>Private Sub Command1_Click()</p>
+<p>If Combo1 = &quot;Attack&quot; Then</p>
+<p>If Distance &gt;= 100 Then</p>
+<p>Label13 = &quot;They are too far.&quot;</p>
+<p>ElseIf YPosition = 0 Then</p>
+<p>Label13 = &quot;You are not in a attack position&quot;</p>
+<p>ElseIf Distance &lt; 100 Then</p>
+<p>OHP = OHP - 2 * YCannon + OArmour</p>
+<p>OMen = OMen - 0.5 * YCannon</p>
+<p>YShots = YShots - YCannon</p>
+<p>Label13 = &quot;They have been hit.&quot;</p>
+<p>YPosition = 0</p>
+<p>Combo1 = &quot;Flank&quot;</p>
+<p>End If</p>
+<p>&nbsp;</p>
+<p>ElseIf Combo1.Text = &quot;Retreat&quot; Then</p>
+<p>Label13 = &quot;You are retreating.&quot;</p>
+<p>YPosition = 0</p>
+<p>ElseIf Combo1.Text = &quot;Flank&quot; Then</p>
+<p>YPosition = 1</p>
+<p>Label13 = &quot;We are now ready to attack them.&quot;</p>
+<p>Combo1.Text = &quot;Attack&quot;</p>
+<p>&nbsp;</p>
+<p>ElseIf Combo1.Text = &quot;Approach&quot; Then</p>
+<p>YPosition = 1</p>
+<p>Distance = Distance - 20</p>
+<p>ElseIf Combo1.Text = &quot;Board&quot; Then</p>
+<p>If Distance &lt; 10 Then</p>
+<p>YMen = YMen - OMen</p>
+<p>If YMen &gt; 0 Then</p>
+<p>Label13 = &quot;You Win!!!&quot;</p>
+<p>Else</p>
+<p>Label13 = &quot;All your men where destroyed.&quot;</p>
+<p>End If</p>
+<p>Else</p>
+<p>Label13 = &quot;You are too far away.&quot;</p>
+<p>End If</p>
+<p>End If</p>
+<p>'the &amp; command adds the strings so that they form one</p>
+<p>'long string</p>
+<p>Form1.Caption = &quot;(Distance =&quot; &amp; Distance &amp; &quot; )&quot;</p>
+<p>'The Events</p>
+<p>If OHP &lt; 0 Then</p>
+<p>Label13 = &quot;Their ship is sunk.&quot;</p>
+<p>ElseIf OMen &lt; 0 Then</p>
+<p>Label13 = &quot;You Win.&quot;</p>
+<p>ElseIf YMen &lt; 0 Then</p>
+<p>Label13 = &quot;You loose.&quot;</p>
+<p>'The AI</p>
+<p>ElseIf Distance &gt;= 100 Then</p>
+<p>Distance = Distance - 20</p>
+<p>ElseIf OPosition = 0 Then</p>
+<p>OPosition = 1</p>
+<p>&nbsp;</p>
+<p>Else</p>
+<p>YHP = YHP - 2 * OCannon + YArmour</p>
+<p>'the int command rounds the produced number to the nearest</p>
+<p>'integer</p>
+<p>YMen = Int(YMen - OCannon.Text * 0.5)</p>
+<p>OPosition = 0</p>
+<p>OShots = OShots - OCannon</p>
+<p>&nbsp;</p>
+<p>End If</p>
+<p>End Sub</p>
+</font>
+<p>We will do more on this project in the next chapter with random numbers,
+message boxes , &amp; , and/or operator and form switching.</p>
